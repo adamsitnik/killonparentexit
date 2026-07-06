@@ -19,27 +19,20 @@ internal static class Program
             return 1;
         }
 
-        var startInfo = new ProcessStartInfo
+        ProcessStartInfo startInfo = new()
         {
             FileName = args[0],
-            UseShellExecute = false,
             KillOnParentExit = true
         };
 
-        foreach (var argument in args.Skip(1))
+        for (int i = 1; i < args.Length; i++)
         {
-            startInfo.ArgumentList.Add(argument);
+            startInfo.ArgumentList.Add(args[i]);
         }
 
         try
         {
-            using var process = Process.Start(startInfo);
-            if (process is null)
-            {
-                Console.Error.WriteLine($"Failed to start '{args[0]}'.");
-                return 1;
-            }
-
+            using Process process = Process.Start(startInfo)!;
             process.WaitForExit();
             return process.ExitCode;
         }
