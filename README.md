@@ -20,7 +20,7 @@ killonparentexit /bin/sh -c "echo hello"
 Publish a self-contained single-file executable for the target runtime identifier (RID):
 
 ```bash
-dotnet publish /home/runner/work/killonparentexit/killonparentexit/killonparentexit/killonparentexit.csproj -c Release -r linux-x64
+dotnet publish killonparentexit/killonparentexit.csproj -c Release -r linux-x64
 ```
 
 Supported publish targets in the project file are `linux-x64` and `win-x64`.
