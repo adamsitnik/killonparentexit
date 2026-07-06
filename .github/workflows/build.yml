@@ -25,6 +25,6 @@ jobs:
 
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 11.0.100-preview.5.26302.115
+          global-json-file: global.json
 
       - run: dotnet build killonparentexit/killonparentexit.csproj -c Release
